@@ -1,6 +1,13 @@
 # lethal-js
 
 A clean framework for creating web-proxies with just 4 lines of code
+## reworked by GD-Cybernetix
+### reworks
+  - fixed up file paths
+  - fixed css (borders, margins, etc)
+### working on
+  - q param system for embedding
+
 
 # Usage
 
