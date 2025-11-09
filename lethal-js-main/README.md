@@ -6,7 +6,7 @@ A clean framework for creating web-proxies with just 4 lines of code
   - fixed up file paths
   - fixed css (borders, margins, etc)
 ### working on
-  - q parameter system for embedding
+  - q param system for embedding
 
 
 # Usage
