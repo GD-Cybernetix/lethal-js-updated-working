@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lethal JS Example</title>
+</head>
+
+<body>
+    <iframe id="frame" style="height: 100vh; width: 100%;"></iframe>
+
+    <script type="module">
+        import { setTransport, setWisp, makeURL, getProxied } from './lethal-js/lethal.js'
+        const frame = document.getElementById('frame');
+
+        await setTransport('epoxy');
+        await setWisp('wss://wisp.mercurywork.shop/wisp/');
+
+        // Wait a moment for the connection to establish
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        frame.src = await getProxied(makeURL('example.com'));
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            /* This is the key */
+            padding: 0;
+        }
+
+        iframe {
+            height: 100vh;
+            /* Set to the full viewport height */
+            width: 100%;
+            border: none;
+        }
+
+        html,
+        body {
+            /* 1. Set html and body height to 100% of the viewport */
+            height: 100%;
+            /* 2. Remove default margins that cause the extra scrollbar */
+            margin: 0;
+            padding: 0;
+            /* Optional: Hide any potential scrollbars if content is slightly larger */
+            overflow: hidden;
+        }
+
+        /* If the iframe is inside a container, set its height to 100% too */
+        /* assuming your iframe is not directly in the body, replace .iframe-container */
+        #frame {
+            height: 100%;
+        }
+
+        iframe {
+            /* Set the iframe's height to 100% of its parent's height */
+            height: 100%;
+            /* Set the width to 100% for full width */
+            width: 100%;
+            /* Optional: Remove default iframe border */
+            border: none;
+        }
+    </style>
+</body>
+
+</html>
