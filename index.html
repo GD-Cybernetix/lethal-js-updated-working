@@ -19,8 +19,10 @@
 
         // Wait a moment for the connection to establish
         await new Promise(resolve => setTimeout(resolve, 1000));
+        const params = new URLSearchParams(window.location.search);
+        const queryUrl = params.get('url');
 
-        frame.src = await getProxied(makeURL('example.com'));
+        frame.src = await getProxied(makeURL(queryUrl || 'https://example.com'));
     </script>
 
     <style>
